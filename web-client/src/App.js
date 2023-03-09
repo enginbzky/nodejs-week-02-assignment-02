@@ -33,16 +33,6 @@ function App() {
     await fetchData();
   };
 
-  // const handleClickAddFaker = async (pNewPost) => {
-  //   await fetch("http://localhost:8080/api/posts/faker", {
-  //     method: "POST",
-  //     body: JSON.stringify(pNewPost),
-  //     headers: { "Content-Type": "application/json" },
-  //   });
-
-  //   await fetchData();
-  // };
-
   const handleClickDelete = async (pId) => {
     await fetch("http://localhost:8080/api/posts/" + pId, {
       method: "DELETE",
@@ -50,16 +40,6 @@ function App() {
 
     await fetchData();
   };
-
-  // const handleClickEdit = async (pPost, pId) => {
-  //   await fetch("http://localhost:8080/api/posts/" + pId, {
-  //     method: "PUT",
-  //     headers: { "Content-Type": "Application/json" },
-  //     body: JSON.stringify(pPost),
-  //   });
-
-  //   await fetchData();
-  // };
 
   const updatePost = async (id, post) => {
     const options = {
@@ -84,10 +64,6 @@ function App() {
       throw error;
     }
   };
-  // const handleUserClick = async (userId) => {
-  // const userResponse = await fetch(`${baseUrl}/users/${userId}`);
-  // const userData = await userResponse.json();
-  // setSelectedUser(userData);  };
 
   const handleEdit = (pPost) => {
     setIsEditing(true);
@@ -126,20 +102,6 @@ function App() {
     }
   };
 
-  // const handleSubmitFaker = async (pValues) => {
-  //   const newPost = {
-  //     id: uuidv4(),
-  //     title: pValues.title,
-  //     content: pValues.content,
-  //   };
-  //   try {
-  //     await handleClickAddFaker(newPost);
-  //     fetchData();
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-
   const formik = useFormik({
     initialValues: {
       id: "",
@@ -167,11 +129,6 @@ function App() {
         formik={formik}
         handleClickAdd={handleClickAdd}
       />
-      {/* <Users
-        users={users}
-        selectedUser={selectedUser}
-        handleUserClick={handleUserClick}
-      /> */}
     </div>
   );
 }
